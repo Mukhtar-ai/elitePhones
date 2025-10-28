@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ElitePhones - Order Mobile Phones Online in Nigeria</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-top">
+        <div class="container">
+          <div class="logo">
+            <h1>ElitePhones</h1>
+          </div>
+          <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search products, brands and categories">
+            <button class="search-btn">Search</button>
+          </div>
+          <div class="header-actions">
+            <button class="cart-btn" id="cartBtn">
+              <span class="cart-icon">🛒</span>
+              <span>Cart</span>
+              <span class="cart-count" id="cartCount">0</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <nav class="nav">
+        <div class="container">
+          <a href="#" class="nav-link">Home</a>
+          <a href="#" class="nav-link">Phones & Tablets</a>
+          <a href="#" class="nav-link">Mobile Phones</a>
+          <a href="#" class="nav-link active">Apple</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <div class="content-wrapper">
+          <!-- Sidebar Filters -->
+          <aside class="sidebar">
+            <div class="filter-section">
+              <h3>Category</h3>
+              <div class="filter-options">
+                <label><input type="checkbox" checked> Phones & Tablets</label>
+                <label><input type="checkbox" checked> Mobile Phones</label>
+                <label><input type="checkbox" checked> Smartphones</label>
+              </div>
+            </div>
+
+            <div class="filter-section">
+              <h3>Brand</h3>
+              <div class="filter-search">
+                <input type="text" id="brandSearch" placeholder="Search">
+              </div>
+              <div class="filter-options scrollable" id="brandFilter">
+                <label><input type="checkbox" value="Apple" checked> Apple</label>
+                <label><input type="checkbox" value="Samsung"> Samsung</label>
+                <label><input type="checkbox" value="Xiaomi"> Xiaomi</label>
+                <label><input type="checkbox" value="Oppo"> Oppo</label>
+                <label><input type="checkbox" value="Tecno"> Tecno</label>
+                <label><input type="checkbox" value="Infinix"> Infinix</label>
+                <label><input type="checkbox" value="Nokia"> Nokia</label>
+              </div>
+            </div>
+
+            <div class="filter-section">
+              <h3>Color</h3>
+              <div class="filter-options">
+                <label><input type="checkbox" value="Black"> Black</label>
+                <label><input type="checkbox" value="Blue"> Blue</label>
+                <label><input type="checkbox" value="Gold"> Gold</label>
+                <label><input type="checkbox" value="Green"> Green</label>
+                <label><input type="checkbox" value="Purple"> Purple</label>
+                <label><input type="checkbox" value="White"> White</label>
+                <label><input type="checkbox" value="Orange"> Orange</label>
+              </div>
+            </div>
+
+            <div class="filter-section">
+              <h3>Discount</h3>
+              <div class="filter-options">
+                <label><input type="checkbox" class="discount-filter" value="0"> Show only discounted items</label>
+              </div>
+            </div>
+
+            <div class="filter-section">
+              <h3>Price (₦)</h3>
+              <div class="price-range">
+                <input type="number" id="minPrice" placeholder="Min" value="211043">
+                <span>-</span>
+                <input type="number" id="maxPrice" placeholder="Max" value="5101998">
+                <button id="applyPrice">Apply</button>
+              </div>
+            </div>
+
+            <div class="filter-section">
+              <h3>Discount Percentage</h3>
+              <div class="filter-options">
+                <label><input type="radio" name="discount" value="50"> 50% or more</label>
+                <label><input type="radio" name="discount" value="40"> 40% or more</label>
+                <label><input type="radio" name="discount" value="30"> 30% or more</label>
+                <label><input type="radio" name="discount" value="20"> 20% or more</label>
+                <label><input type="radio" name="discount" value="10"> 10% or more</label>
+              </div>
+            </div>
+
+            <div class="filter-section">
+              <h3>Product Rating</h3>
+              <div class="filter-options">
+                <label><input type="radio" name="rating" value="4"> 4★ & above</label>
+                <label><input type="radio" name="rating" value="3"> 3★ & above</label>
+                <label><input type="radio" name="rating" value="2"> 2★ & above</label>
+                <label><input type="radio" name="rating" value="1"> 1★ & above</label>
+              </div>
+            </div>
+
+            <div class="filter-section">
+              <h3>Screen Size</h3>
+              <div class="filter-options">
+                <label><input type="checkbox" class="screen-filter" value="6.1"> 6.1</label>
+                <label><input type="checkbox" class="screen-filter" value="6.5"> 6.5</label>
+                <label><input type="checkbox" class="screen-filter" value="6.7"> 6.7</label>
+                <label><input type="checkbox" class="screen-filter" value="6.9"> 6.9</label>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Products Grid -->
+          <section class="products-section">
+            <div class="products-header">
+              <h2>Apple iPhones</h2>
+              <p class="product-count">(<span id="productCount">0</span> products found)</p>
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+              <div class="loading">Loading products...</div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>Need Help?</h4>
+            <ul>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">How to shop on ElitePhones?</a></li>
+              <li><a href="#">Delivery options and timelines</a></li>
+              <li><a href="#">Return Policy</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>About ElitePhones</h4>
+            <ul>
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Terms and Conditions</a></li>
+              <li><a href="#">Privacy Notice</a></li>
+              <li><a href="#">Cookie Notice</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Make Money with ElitePhones</h4>
+            <ul>
+              <li><a href="#">Sell on ElitePhones</a></li>
+              <li><a href="#">Become a Sales Consultant</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Payment Methods</h4>
+            <p>Visa, MasterCard, Verve, Bank Transfer</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 ElitePhones. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Shopping Cart</h3>
+          <button class="close-modal" id="closeCart">&times;</button>
+        </div>
+        <div class="modal-body" id="cartItems">
+          <p class="empty-cart">Your cart is empty</p>
+        </div>
+        <div class="modal-footer">
+          <div class="cart-total">
+            <strong>Total: ₦<span id="cartTotal">0</span></strong>
+          </div>
+          <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="/main.js"></script>
+</body>
+
+</html>
